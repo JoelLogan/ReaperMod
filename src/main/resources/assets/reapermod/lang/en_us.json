@@ -1,0 +1,7 @@
+{
+  "item.reapermod.heart": "Heart",
+  "item.reapermod.heart.description": "Craft an item worth 1 heart",
+  "item.reapermod.heart.tooltip1": "(Right Click)",
+  "item.reapermod.heart.used": "You have gained a heart!",
+  "item.reapermod.heart.maxhearts": "You have the max number of hearts."
+}

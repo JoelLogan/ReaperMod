@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "reapermod",
+  "version": "0.1",
+  "name": "Reaper",
+  "description": "A lifesteal mod with an effect-ive twist",
+  "authors": [
+    "Team_Whitehall"
+  ],
+  "contact": {
+    "repo": "https://github.com/JoelLogan/ReaperMod"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/reapermod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.whitehallplugins.reapermod.client.ReaperClient"
+    ],
+    "main": [
+      "com.whitehallplugins.reapermod.Reaper"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric": "*",
+    "minecraft": "1.19.2"
+  }
+}

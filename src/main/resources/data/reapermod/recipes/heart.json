@@ -1,0 +1,27 @@
+    {
+      "type": "minecraft:crafting_shaped",
+      "category": "minecraft:",
+      "pattern": [
+        "DSD",
+        "DTD",
+        "NNN"
+      ],
+      "key": {
+        "D": {
+          "item": "minecraft:diamond_block"
+        },
+        "S": {
+          "item": "minecraft:nether_star"
+        },
+        "T": {
+          "item": "minecraft:totem_of_undying"
+        },
+        "N": {
+          "item": "minecraft:netherite_ingot"
+        }
+      },
+      "result": {
+        "item": "reapermod:heart",
+        "count": 1
+      }
+    }
