@@ -1,11 +1,14 @@
 package com.whitehallplugins.reapermod;
 
+import com.whitehallplugins.reapermod.items.heart_item;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+import static com.whitehallplugins.reapermod.commands.WithdrawCommand.register;
 
 public class Reaper implements ModInitializer {
 
@@ -14,6 +17,8 @@ public class Reaper implements ModInitializer {
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("reapermod", "heart"), HEART_ITEM);
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
     }
 
 }

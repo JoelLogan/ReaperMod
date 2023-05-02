@@ -1,4 +1,4 @@
-package com.whitehallplugins.reapermod;
+package com.whitehallplugins.reapermod.items;
 
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.attribute.EntityAttributes;
