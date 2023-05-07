@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.whitehallplugins.reapermod.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "server": [
+    "playerDeathMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

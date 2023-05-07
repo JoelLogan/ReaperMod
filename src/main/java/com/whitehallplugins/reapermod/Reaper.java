@@ -5,9 +5,15 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
+import com.whitehallplugins.reapermod.events.playerDeathCallback;
+
+import java.util.Objects;
+
 import static com.whitehallplugins.reapermod.commands.WithdrawCommand.register;
 
 public class Reaper implements ModInitializer {
@@ -19,6 +25,13 @@ public class Reaper implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("reapermod", "heart"), HEART_ITEM);
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
+
+        playerDeathCallback.EVENT.register((damageSource, callbackInfo) -> {
+            Objects.requireNonNull(damageSource.getAttacker()).sendMessage(Text.of("You killed " + Objects.requireNonNull(damageSource.getSource()).getType().toString()));
+            System.out.println("Registered");
+            return ActionResult.PASS;
+        });
+
     }
 
 }

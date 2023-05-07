@@ -28,19 +28,20 @@ public final class WithdrawCommand {
     }
 
     private static int giveHeart(ServerCommandSource ctx, int amount) throws CommandSyntaxException {
-        final PlayerEntity self = ctx.getPlayer();
-        assert self != null;
-        double maxHealth = (self.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH));
-        if (maxHealth > (amount * 2)) {
-            if (!self.getInventory().insertStack(new ItemStack(Registry.ITEM.get(new Identifier("reapermod", "heart"))))){
-                throw new SimpleCommandExceptionType(Text.translatable("inventory.isfull")).create();
+        if (ctx.getPlayer() != null) {
+            final PlayerEntity self = ctx.getPlayer();
+            assert self != null;
+            double maxHealth = (self.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH));
+            if (maxHealth > (amount * 2)) {
+                if (!self.getInventory().insertStack(new ItemStack(Registry.ITEM.get(new Identifier("reapermod", "heart")), amount))) {
+                    throw new SimpleCommandExceptionType(Text.translatable("inventory.isfull")).create();
+                }
+                Objects.requireNonNull(self.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(maxHealth - (amount * 2));
+                self.damage(DamageSource.FALL, 0.1f);
+                self.heal(0.1f);
+            } else {
+                throw new SimpleCommandExceptionType(Text.translatable("withdraw.notenoughhearts")).create();
             }
-            Objects.requireNonNull(self.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(maxHealth - (amount * 2));
-            self.damage(DamageSource.FALL, 0.1f);
-            self.heal(0.1f);
-        }
-        else{
-            throw new SimpleCommandExceptionType(Text.translatable("withdraw.notenoughhearts")).create();
         }
         return 1;
     }
