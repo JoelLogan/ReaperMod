@@ -3,14 +3,13 @@ package com.whitehallplugins.reapermod;
 import com.whitehallplugins.reapermod.items.heart_item;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
-import com.whitehallplugins.reapermod.events.playerDeathCallback;
+import com.whitehallplugins.reapermod.events.entityDeathCallback;
 
 import java.util.Objects;
 
@@ -26,11 +25,7 @@ public class Reaper implements ModInitializer {
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
 
-        playerDeathCallback.EVENT.register((damageSource, callbackInfo) -> {
-            Objects.requireNonNull(damageSource.getAttacker()).sendMessage(Text.of("You killed " + Objects.requireNonNull(damageSource.getSource()).getType().toString()));
-            System.out.println("Registered");
-            return ActionResult.PASS;
-        });
+        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new entityDeathCallback());
 
     }
 

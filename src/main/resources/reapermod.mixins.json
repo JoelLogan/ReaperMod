@@ -8,7 +8,6 @@
   "client": [
   ],
   "server": [
-    "playerDeathMixin"
   ],
   "injectors": {
     "defaultRequire": 1
