@@ -1,23 +1,29 @@
 package com.whitehallplugins.reapermod;
 
+import com.whitehallplugins.reapermod.events.entityPossibleDeathCallback;
 import com.whitehallplugins.reapermod.items.heart_item;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
-import com.whitehallplugins.reapermod.events.entityDeathCallback;
+import com.whitehallplugins.reapermod.events.entityDeathByEntityCallback;
 
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.whitehallplugins.reapermod.commands.WithdrawCommand.register;
 
 public class Reaper implements ModInitializer {
 
     public static final heart_item HEART_ITEM = new heart_item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.EPIC));
+    public static Map<String, Double> previousMaxHealth = new HashMap<>();
+    public static Map<String, Double> previousMaxHealthStolen = new HashMap<>();
+
 
     @Override
     public void onInitialize() {
@@ -25,7 +31,8 @@ public class Reaper implements ModInitializer {
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> register(dispatcher));
 
-        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new entityDeathCallback());
+        ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new entityDeathByEntityCallback());
+        ServerLivingEntityEvents.ALLOW_DEATH.register(new entityPossibleDeathCallback());
 
     }
 
