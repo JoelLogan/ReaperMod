@@ -4,6 +4,12 @@
   "item.reapermod.heart.tooltip1": "(Right Click)",
   "item.reapermod.heart.used": "You have gained a heart!",
   "item.reapermod.heart.maxhearts": "You have the max number of hearts.",
+  "item.reapermod.revive_crystal": "Revive Crystal",
+  "item.reapermod.revive_crystal.description": "Craft an item that can revive a player",
+  "item.reapermod.revive_crystal.tooltip1": "(Right Click)",
+  "item.reapermod.revive_crystal.tooltip2": "WARNING",
+  "item.reapermod.revive_crystal.tooltip3": "Once you right click,",
+  "item.reapermod.revive_crystal.tooltip4": "the item will disappear.",
   "inventory.isfull": "You don't have an inventory slot available.",
   "withdraw.notenoughhearts": "You don't have that many hearts."
 }

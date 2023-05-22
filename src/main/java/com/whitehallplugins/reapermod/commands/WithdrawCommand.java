@@ -45,5 +45,4 @@ public final class WithdrawCommand {
         }
         return 1;
     }
-
 }

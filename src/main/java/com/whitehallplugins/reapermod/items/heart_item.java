@@ -43,9 +43,6 @@ public class heart_item extends Item {
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-
         tooltip.add(Text.translatable("item.reapermod.heart.tooltip1").formatted(Formatting.DARK_GRAY));
-        //tooltip.add(Text.translatable("item.reapermod.heart.tooltip2").formatted(Formatting.GOLD));
-        //  "item.reapermod.heart.tooltip2": "(Right click to use)",
     }
 }
