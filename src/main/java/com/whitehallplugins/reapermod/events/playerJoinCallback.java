@@ -2,19 +2,23 @@ package com.whitehallplugins.reapermod.events;
 
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.Join;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
+import net.minecraft.util.Identifier;
 
-import java.util.Objects;
+import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.getMaxHearts;
+import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.setMaxHearts;
 
 public class playerJoinCallback implements Join {
 
     @Override
     public void onPlayReady(ServerPlayNetworkHandler handler, PacketSender sender, MinecraftServer server) {
-        if (handler.getPlayer().getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH) < 2) {
-            Objects.requireNonNull(handler.getPlayer().getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(20);
+        if (getMaxHearts(handler.getPlayer()) < 2) {
+            setMaxHearts(handler.getPlayer(), 3);
         }
+        Identifier[] identifiers = new Identifier[2];
+        identifiers[0] = new Identifier("reapermod", "heart");
+        identifiers[1] = new Identifier("reapermod", "revive_crystal");
+        handler.getPlayer().unlockRecipes(identifiers);
     }
-
 }

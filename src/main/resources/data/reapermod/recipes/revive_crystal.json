@@ -1,0 +1,23 @@
+    {
+      "type": "minecraft:crafting_shaped",
+      "pattern": [
+        "DTD",
+        "HHH",
+        "DTD"
+      ],
+      "key": {
+        "D": {
+          "item": "minecraft:diamond"
+        },
+        "T": {
+          "item": "minecraft:ghast_tear"
+        },
+        "H": {
+          "item": "reapermod:heart"
+        }
+      },
+      "result": {
+        "item": "reapermod:revive_crystal",
+        "count": 1
+      }
+    }

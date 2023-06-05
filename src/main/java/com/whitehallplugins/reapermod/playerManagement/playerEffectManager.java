@@ -6,7 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class playerEffectManager {
 
-    public static void applyEffects(PlayerEntity player, double maxHealth){
+    public static void applyEffects(PlayerEntity player, int maxHealth){
         if (maxHealth == 9) {
             effectNine(player, true);
         } else if (maxHealth == 8) {
@@ -64,7 +64,7 @@ public class playerEffectManager {
         }
     }
 
-    public static void removeEffects(PlayerEntity player, double maxHealth){
+    public static void removeEffects(PlayerEntity player, int maxHealth){
         if (maxHealth > 9){
             effectNine(player, false);
             effectEight(player, false);

@@ -2,7 +2,6 @@ package com.whitehallplugins.reapermod.items;
 
 import com.whitehallplugins.reapermod.playerManagement.playerEffectManager;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,7 +13,9 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.List;
-import java.util.Objects;
+
+import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.addHeart;
+import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.getMaxHearts;
 
 public class heart_item extends Item {
 
@@ -26,13 +27,13 @@ public class heart_item extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         if (!world.isClient) {
             double totalMaxHealth = 40;
-            double currentMaxHealth = player.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH);
+            double currentMaxHealth = getMaxHearts(player);
             if (currentMaxHealth != totalMaxHealth) {
                 ItemStack itemInHand = player.getStackInHand(hand);
                 player.playSound(SoundEvents.BLOCK_NOTE_BLOCK_CHIME, 1.0F, 1.0F);
                 player.sendMessage(Text.translatable("item.reapermod.heart.used").formatted(Formatting.GOLD));
-                Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(currentMaxHealth + 2);
-                playerEffectManager.removeEffects(player, player.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH)/2);
+                addHeart(player, 1);
+                playerEffectManager.removeEffects(player, getMaxHearts(player)/2);
                 itemInHand.decrement(1);
                 return TypedActionResult.success(itemInHand);
             } else {
