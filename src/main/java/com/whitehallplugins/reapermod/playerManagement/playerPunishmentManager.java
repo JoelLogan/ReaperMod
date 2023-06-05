@@ -1,4 +1,4 @@
-package com.whitehallplugins.reapermod.punishments;
+package com.whitehallplugins.reapermod.playerManagement;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -20,6 +20,10 @@ public class playerPunishmentManager {
 
     public static void banPlayer(PlayerEntity player){
         Objects.requireNonNull(player.getServer()).getCommandManager().executeWithPrefix(player.getServer().getCommandSource(), "/ban " + player.getName().getString() + " You ran out of lives");
+    }
+
+    public static void unbanPlayer(PlayerEntity player, String bannedPlayer){
+        Objects.requireNonNull(player.getServer()).getCommandManager().executeWithPrefix(player.getServer().getCommandSource(), "/pardon " + bannedPlayer);
     }
 
     public static List<String> getBannedPlayers(){

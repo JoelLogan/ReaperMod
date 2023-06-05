@@ -6,6 +6,7 @@ import static net.minecraft.server.command.CommandManager.argument;
 import static com.mojang.brigadier.arguments.IntegerArgumentType.integer;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
+import com.whitehallplugins.reapermod.playerManagement.playerEffectManager;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -39,6 +40,7 @@ public final class WithdrawCommand {
                 Objects.requireNonNull(self.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(maxHealth - (amount * 2));
                 self.damage(DamageSource.FALL, 0.1f);
                 self.heal(0.1f);
+                playerEffectManager.applyEffects(self, self.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH)/2);
             } else {
                 throw new SimpleCommandExceptionType(Text.translatable("withdraw.notenoughhearts")).create();
             }

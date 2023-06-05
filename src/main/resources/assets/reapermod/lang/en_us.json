@@ -7,9 +7,12 @@
   "item.reapermod.revive_crystal": "Revive Crystal",
   "item.reapermod.revive_crystal.description": "Craft an item that can revive a player",
   "item.reapermod.revive_crystal.tooltip1": "(Right Click)",
-  "item.reapermod.revive_crystal.tooltip2": "WARNING",
-  "item.reapermod.revive_crystal.tooltip3": "Once you right click,",
-  "item.reapermod.revive_crystal.tooltip4": "the item will disappear.",
+  "item.reapermod.revive_crystal.usecommand1": "To revive a player, hold this item in your hand and run",
+  "item.reapermod.revive_crystal.usecommand2": "/revive playername",
   "inventory.isfull": "You don't have an inventory slot available.",
+  "item.reapermod.revive.success": "You have successfully revived the player",
+  "item.reapermod.revive.noitem": "You need to hold a revive crystal",
+  "item.reapermod.revive.noplayer": "You need to enter a player to revive",
+  "item.reapermod.revive.notbanned": "The player you entered is not currently banned",
   "withdraw.notenoughhearts": "You don't have that many hearts."
 }

@@ -1,5 +1,6 @@
 package com.whitehallplugins.reapermod.items;
 
+import com.whitehallplugins.reapermod.playerManagement.playerEffectManager;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
@@ -31,6 +32,7 @@ public class heart_item extends Item {
                 player.playSound(SoundEvents.BLOCK_NOTE_BLOCK_CHIME, 1.0F, 1.0F);
                 player.sendMessage(Text.translatable("item.reapermod.heart.used").formatted(Formatting.GOLD));
                 Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(currentMaxHealth + 2);
+                playerEffectManager.removeEffects(player, player.getAttributes().getBaseValue(EntityAttributes.GENERIC_MAX_HEALTH)/2);
                 itemInHand.decrement(1);
                 return TypedActionResult.success(itemInHand);
             } else {

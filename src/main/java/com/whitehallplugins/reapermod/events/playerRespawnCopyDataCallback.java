@@ -1,10 +1,8 @@
 package com.whitehallplugins.reapermod.events;
 
-import com.whitehallplugins.reapermod.Reaper;
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents.CopyFrom;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
 import java.util.Objects;
 
