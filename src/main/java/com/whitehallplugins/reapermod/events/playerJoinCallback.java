@@ -8,7 +8,6 @@ import net.minecraft.util.Identifier;
 
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.getMaxHearts;
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.setMaxHearts;
-import static com.whitehallplugins.reapermod.playerManagement.playerTeamManager.checkReaper;
 
 public class playerJoinCallback implements Join {
 
@@ -21,6 +20,5 @@ public class playerJoinCallback implements Join {
         identifiers[0] = new Identifier("reapermod", "heart");
         identifiers[1] = new Identifier("reapermod", "revive_crystal");
         handler.getPlayer().unlockRecipes(identifiers);
-        checkReaper(handler.getPlayer(), 1);
     }
 }
