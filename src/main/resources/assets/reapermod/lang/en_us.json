@@ -14,5 +14,8 @@
   "item.reapermod.revive.noitem": "You need to hold a revive crystal",
   "item.reapermod.revive.noplayer": "You need to enter a player to revive",
   "item.reapermod.revive.notbanned": "The player you entered is not currently banned",
-  "withdraw.notenoughhearts": "You don't have that many hearts."
+  "item.reapermod.revive.oncooldown": "This command is on cooldown",
+  "withdraw.toomanyhearts": "You can't withdraw that many hearts",
+  "reapermod.announce.1": " is now a ",
+  "reapermod.announce.2": "Reaper"
 }

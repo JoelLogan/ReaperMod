@@ -128,90 +128,134 @@ public class playerEffectManager {
     }
 
     private static void effectNine(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance9 = new StatusEffectInstance(StatusEffects.NIGHT_VISION, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance9 = new StatusEffectInstance(StatusEffects.NIGHT_VISION, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance9);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance9.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance9.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance9.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance9.getEffectType());
+                }
+            }
         }
     }
     private static void effectEight(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance8 = new StatusEffectInstance(StatusEffects.ABSORPTION, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance8 = new StatusEffectInstance(StatusEffects.ABSORPTION, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance8);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance8.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance8.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance8.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance8.getEffectType());
+                }
+            }
         }
     }
     private static void effectSeven(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance7 = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance7 = new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance7);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance7.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance7.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance7.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance7.getEffectType());
+                }
+            }
         }
     }
     private static void effectSix(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance6 = new StatusEffectInstance(StatusEffects.RESISTANCE, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance6 = new StatusEffectInstance(StatusEffects.RESISTANCE, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance6);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance6.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance6.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance6.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance6.getEffectType());
+                }
+            }
         }
     }
     private static void effectFive(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance5 = new StatusEffectInstance(StatusEffects.SPEED, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance5 = new StatusEffectInstance(StatusEffects.SPEED, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance5);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance5.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance5.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance5.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance5.getEffectType());
+                }
+            }
         }
     }
     private static void effectFour(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance4 = new StatusEffectInstance(StatusEffects.HASTE, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance4 = new StatusEffectInstance(StatusEffects.HASTE, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance4);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance4.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance4.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance4.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance4.getEffectType());
+                }
+            }
         }
     }
     private static void effectThree(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance3 = new StatusEffectInstance(StatusEffects.SPEED, 999999999, 1, false, false, true);
+        StatusEffectInstance statusEffectInstance3 = new StatusEffectInstance(StatusEffects.SPEED, Integer.MAX_VALUE, 1, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance3);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance3.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance3.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance3.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance3.getEffectType());
+                }
+            }
         }
     }
     private static void effectTwo(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance21 = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 999999999, 0, false, false, true);
-        StatusEffectInstance statusEffectInstance22 = new StatusEffectInstance(StatusEffects.HASTE, 999999999, 1, false, false, true);
+        StatusEffectInstance statusEffectInstance21 = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance22 = new StatusEffectInstance(StatusEffects.HASTE, Integer.MAX_VALUE, 1, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance21);
             player.addStatusEffect(statusEffectInstance22);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance21.getEffectType());
-            player.removeStatusEffect(statusEffectInstance22.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance21.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance21.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance21.getEffectType());
+                }
+            }
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance22.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance22.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance22.getEffectType());
+                }
+            }
         }
     }
     private static void effectOne(PlayerEntity player, boolean add){
-        StatusEffectInstance statusEffectInstance11 = new StatusEffectInstance(StatusEffects.STRENGTH, 999999999, 2, false, false, true);
-        StatusEffectInstance statusEffectInstance12 = new StatusEffectInstance(StatusEffects.SATURATION, 999999999, 0, false, false, true);
+        StatusEffectInstance statusEffectInstance11 = new StatusEffectInstance(StatusEffects.STRENGTH, Integer.MAX_VALUE, 2, false, false, true);
+        StatusEffectInstance statusEffectInstance12 = new StatusEffectInstance(StatusEffects.SATURATION, Integer.MAX_VALUE, 0, false, false, true);
         if (add) {
             player.addStatusEffect(statusEffectInstance11);
             player.addStatusEffect(statusEffectInstance12);
         }
         else {
-            player.removeStatusEffect(statusEffectInstance11.getEffectType());
-            player.removeStatusEffect(statusEffectInstance12.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance11.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance11.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance11.getEffectType());
+                }
+            }
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance12.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance12.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance12.getEffectType());
+                }
+            }
         }
     }
 }

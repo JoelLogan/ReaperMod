@@ -15,7 +15,7 @@ public class ReaperClient implements ClientModInitializer {
             if (client.player != null && (client.player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH) / 2.0F) < 2) {
                 TextRenderer renderer = client.textRenderer;
                 renderer.draw(matrixStack, "You are a", 4, 2, 0xffffff);
-                renderer.draw(matrixStack, "REAPER", 11, 12, 0xff0320);
+                renderer.draw(matrixStack, "REAPER", 11, 12, 0xAA00AA);
             }
         });
     }
