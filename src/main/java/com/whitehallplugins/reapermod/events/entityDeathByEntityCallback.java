@@ -4,7 +4,10 @@ import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents.AfterKil
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.*;
 import static com.whitehallplugins.reapermod.playerManagement.playerPunishmentManager.kickPlayer;
@@ -29,7 +32,12 @@ public class entityDeathByEntityCallback implements AfterKilledOtherEntity {
                 }
                 else {
                     removeHeart(killedPlayer, 1);
-                    addHeart(player, 1);
+                    if ((getMaxHearts(player)/2) == 20){
+                        player.getInventory().insertStack(new ItemStack(Registry.ITEM.get(new Identifier("reapermod", "heart")), 1));
+                    }
+                    else {
+                        addHeart(player, 1);
+                    }
                 }
                 int maxHearts = getMaxHearts(player)/2;
                 removeEffects(player, maxHearts);
