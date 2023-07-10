@@ -1,4 +1,4 @@
-package com.whitehallplugins.reapermod.commands;
+package com.whitehallplugins.reapermod.commands.playercommands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.entity.player.PlayerEntity;
@@ -22,7 +22,7 @@ import static com.whitehallplugins.reapermod.playerManagement.playerPunishmentMa
 import static net.minecraft.server.command.CommandManager.argument;
 import static net.minecraft.server.command.CommandManager.literal;
 
-public final class ReviveCommand {
+public final class reviveCommand {
 
     private static final List<PlayerEntity> cooldown = new ArrayList<>();
     private static final ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -41,7 +41,7 @@ public final class ReviveCommand {
     }
 
     private static int revivePlayer(ServerCommandSource ctx, String player) {
-        if (ctx.getPlayer() != null) {
+        if (ctx.isExecutedByPlayer()) {
             final PlayerEntity self = ctx.getPlayer();
             assert self != null;
             if (!cooldown.contains(self)) {
@@ -79,7 +79,7 @@ public final class ReviveCommand {
     }
 
     private static int noPlayerError(ServerCommandSource ctx) {
-        if (ctx.getPlayer() != null) {
+        if (ctx.isExecutedByPlayer()) {
             final PlayerEntity self = ctx.getPlayer();
             assert self != null;
             if (self.getStackInHand(self.preferredHand).getItem().equals(Registry.ITEM.get(new Identifier("reapermod", "revive_crystal")))){

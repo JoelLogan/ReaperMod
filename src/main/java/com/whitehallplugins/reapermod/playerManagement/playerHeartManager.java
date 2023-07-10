@@ -21,7 +21,12 @@ public class playerHeartManager {
     }
 
     public static void setMaxHearts(PlayerEntity player, int amount) {
-        Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(amount * 2);
+        if (amount <= 20) {
+            Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(amount * 2);
+        }
+        else {
+            Objects.requireNonNull(player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).setBaseValue(40);
+        }
     }
 
     /**

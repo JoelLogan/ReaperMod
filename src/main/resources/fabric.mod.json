@@ -15,10 +15,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "com.whitehallplugins.reapermod.client.ReaperClient"
+      "com.whitehallplugins.reapermod.client.reaperClient"
     ],
     "main": [
-      "com.whitehallplugins.reapermod.Reaper"
+      "com.whitehallplugins.reapermod.reaper"
     ]
   },
   "depends": {

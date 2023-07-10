@@ -16,6 +16,14 @@
   "item.reapermod.revive.notbanned": "The player you entered is not currently banned",
   "item.reapermod.revive.oncooldown": "This command is on cooldown",
   "withdraw.toomanyhearts": "You can't withdraw that many hearts",
+  "sethealth.nohealth": "Enter the amount of health you want the player to have",
+  "sethealth.message": "%d's health set to %d hearts",
+  "sethealth.errormessage": "Unable to set %d's health",
+  "gethealth.message": "%d's health is %d hearts",
+  "gethealth.errormessage": "%d's health is not available",
+  "sethealth.bignumber": "Max health is 20 hearts",
+  "sethealth.samehealth": "%d's health is already %d hearts",
   "reapermod.announce.1": " is now a ",
-  "reapermod.announce.2": "Reaper"
+  "reapermod.announce.2": "Reaper",
+  "reapermod.joinerror": "ReaperMod not installed on client (verification timeout)"
 }

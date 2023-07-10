@@ -1,4 +1,4 @@
-package com.whitehallplugins.reapermod.commands;
+package com.whitehallplugins.reapermod.commands.playercommands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
@@ -20,7 +20,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 import static net.minecraft.server.command.CommandManager.argument;
 import static com.mojang.brigadier.arguments.IntegerArgumentType.integer;
 
-public final class WithdrawCommand {
+public final class withdrawCommand {
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("withdraw")
@@ -30,7 +30,7 @@ public final class WithdrawCommand {
     }
 
     private static int giveHeart(ServerCommandSource ctx, int amount) throws CommandSyntaxException {
-        if (ctx.getPlayer() != null) {
+        if (ctx.isExecutedByPlayer()) {
             final PlayerEntity self = ctx.getPlayer();
             assert self != null;
             int maxHealth = getMaxHearts(self);
