@@ -24,6 +24,5 @@
   "sethealth.bignumber": "Max health is 20 hearts",
   "sethealth.samehealth": "%d's health is already %d hearts",
   "reapermod.announce.1": " is now a ",
-  "reapermod.announce.2": "Reaper",
-  "reapermod.joinerror": "ReaperMod not installed on client (verification timeout)"
+  "reapermod.announce.2": "Reaper"
 }

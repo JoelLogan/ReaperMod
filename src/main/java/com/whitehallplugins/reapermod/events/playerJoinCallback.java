@@ -40,7 +40,7 @@ public class playerJoinCallback implements Join {
             try {
                 TimeUnit.SECONDS.sleep(15);
                 if (reaper.authenticatingPlayers.contains(player)) {
-                    Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getPlayerManager().getPlayer(player.getUuid())).networkHandler.disconnect(Text.translatable("reapermod.joinerror"));
+                    Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getPlayerManager().getPlayer(player.getUuid())).networkHandler.disconnect(Text.literal("ReaperMod not installed on client (verification timeout)"));
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
