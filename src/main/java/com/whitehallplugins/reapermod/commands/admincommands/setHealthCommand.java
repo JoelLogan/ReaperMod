@@ -36,14 +36,18 @@ public final class setHealthCommand {
     }
 
     private static int noHealthError(ServerCommandSource ctx){
-        ctx.sendMessage(Text.translatable("sethealth.nohealth").formatted(Formatting.RED));
+        ctx.sendMessage(Text.translatable("reapermod.sethealth.nohealth").formatted(Formatting.RED));
         return 1;
     }
 
     private static int setHealth(ServerCommandSource ctx, String enteredPlayer, int amount){
         if (amount > 20){
-            ctx.sendMessage(Text.translatable("sethealth.bignumber").formatted(Formatting.RED));
+            ctx.sendMessage(Text.translatable("reapermod.sethealth.bignumber").formatted(Formatting.RED));
             amount = 20;
+        }
+        else if (amount < 1){
+            ctx.sendMessage(Text.translatable("reapermod.sethealth.smallnumber").formatted(Formatting.RED));
+            amount = 1;
         }
         try {
             PlayerEntity player = ctx.getServer().getPlayerManager().getPlayer(enteredPlayer);
@@ -59,14 +63,14 @@ public final class setHealthCommand {
                     applyEffects(player, amount);
                 }
                 checkReaper(player, amount);
-                ctx.sendMessage(Text.translatable("sethealth.message", enteredPlayer, amount).formatted(Formatting.GREEN));
+                ctx.sendMessage(Text.translatable("reapermod.sethealth.message", enteredPlayer, amount).formatted(Formatting.GREEN));
             }
             else {
-                ctx.sendMessage(Text.translatable("sethealth.samehealth", enteredPlayer, amount).formatted(Formatting.RED));
+                ctx.sendMessage(Text.translatable("reapermod.sethealth.samehealth", enteredPlayer, amount).formatted(Formatting.RED));
             }
         }
         catch(NullPointerException exception){
-            ctx.sendMessage(Text.translatable("sethealth.errormessage", enteredPlayer).formatted(Formatting.RED));
+            ctx.sendMessage(Text.translatable("reapermod.sethealth.errormessage", enteredPlayer).formatted(Formatting.RED));
         }
         return 1;
     }

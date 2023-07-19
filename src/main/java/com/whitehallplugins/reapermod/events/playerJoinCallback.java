@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.getMaxHearts;
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.setMaxHearts;
+import static com.whitehallplugins.reapermod.playerManagement.playerTeamManager.checkReaper;
 
 public class playerJoinCallback implements Join {
 
@@ -32,6 +33,7 @@ public class playerJoinCallback implements Join {
         identifiers[1] = new Identifier("reapermod", "revive_crystal");
         handler.getPlayer().unlockRecipes(identifiers);
         reaper.authenticatingPlayers.add(handler.getPlayer());
+        checkReaper(handler.getPlayer(), getMaxHearts(handler.getPlayer())/2);
         kickPlayerLater(handler.getPlayer());
     }
 

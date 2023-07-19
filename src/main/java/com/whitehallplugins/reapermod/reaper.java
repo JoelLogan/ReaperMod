@@ -32,12 +32,11 @@ public class reaper implements ModInitializer {
     public static final heart_item HEART_ITEM = new heart_item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.EPIC));
     public static final revive_crystal_item REVIVE_CRYSTAL_ITEM = new revive_crystal_item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.RARE).maxCount(1));
     public static final List<PlayerEntity> authenticatingPlayers = new ArrayList<>();
+    public static final List<PlayerEntity> reapers = new ArrayList<>();
 
     /**
-     * TODO: Add moderation commands
      * TODO: Add more resource pack stuff
      * TODO: Add more fun visual Reaper effects
-     * TODO: Make sure that players have the mod using packets
      */
 
     @Override
@@ -61,6 +60,7 @@ public class reaper implements ModInitializer {
         ServerPlayerEvents.COPY_FROM.register(new playerRespawnCopyDataCallback());
         ServerPlayerEvents.AFTER_RESPAWN.register(new playerAfterRespawnCallback());
         ServerPlayConnectionEvents.JOIN.register(new playerJoinCallback());
+        ServerPlayConnectionEvents.DISCONNECT.register(new playerDisconnectCallback());
     }
 
 }

@@ -36,7 +36,7 @@ public final class withdrawCommand {
             int maxHealth = getMaxHearts(self);
             if (maxHealth > (amount * 2) + 4) {
                 if (!self.getInventory().insertStack(new ItemStack(Registry.ITEM.get(new Identifier("reapermod", "heart")), amount))) {
-                    throw new SimpleCommandExceptionType(Text.translatable("inventory.isfull")).create();
+                    throw new SimpleCommandExceptionType(Text.translatable("reapermod.inventory.isfull")).create();
                 }
                 removeHeart(self, amount);
                 self.damage(DamageSource.FALL, 0.1f);
@@ -46,7 +46,7 @@ public final class withdrawCommand {
                 checkReaper(self, maxHealth);
 
             } else {
-                throw new SimpleCommandExceptionType(Text.translatable("withdraw.toomanyhearts")).create();
+                throw new SimpleCommandExceptionType(Text.translatable("reapermod.withdraw.toomanyhearts")).create();
             }
         }
         return 1;

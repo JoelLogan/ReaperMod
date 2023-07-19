@@ -30,10 +30,10 @@ public class getHealthCommand {
 
     private static int sendHealth(ServerCommandSource ctx, String player){
         try {
-            ctx.sendMessage(Text.translatable("gethealth.message", player, (getMaxHearts(Objects.requireNonNull(ctx.getServer().getPlayerManager().getPlayer(player))) / 2)).formatted(Formatting.GREEN));
+            ctx.sendMessage(Text.translatable("reapermod.gethealth.message", player, (getMaxHearts(Objects.requireNonNull(ctx.getServer().getPlayerManager().getPlayer(player))) / 2)).formatted(Formatting.GREEN));
         }
         catch (NullPointerException exception){
-            ctx.sendMessage(Text.translatable("gethealth.errormessage", player).formatted(Formatting.RED));
+            ctx.sendMessage(Text.translatable("reapermod.gethealth.errormessage", player).formatted(Formatting.RED));
         }
         return 1;
     }

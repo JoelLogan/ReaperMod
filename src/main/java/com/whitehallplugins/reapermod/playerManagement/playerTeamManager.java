@@ -1,5 +1,6 @@
 package com.whitehallplugins.reapermod.playerManagement;
 
+import com.whitehallplugins.reapermod.reaper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.scoreboard.ServerScoreboard;
 import net.minecraft.server.MinecraftServer;
@@ -27,11 +28,13 @@ public class playerTeamManager {
                     players.sendMessage(player.getName().copy().append(Text.translatable("reapermod.announce.1").append(Text.translatable("reapermod.announce.2").formatted(Formatting.DARK_PURPLE))));
                 }
             }
+            reaper.reapers.add(player);
         }
         else {
             if (Objects.requireNonNull(scoreboard.getTeam("Reaper")).getPlayerList().contains(player.getName().getString())){
                 scoreboard.removePlayerFromTeam(player.getName().getString(), scoreboard.getTeam("Reaper"));
             }
+            reaper.reapers.remove(player);
         }
     }
 
