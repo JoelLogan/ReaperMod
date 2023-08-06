@@ -32,7 +32,7 @@ public class adminReviveCommand {
 
     private static int revivePlayer(ServerCommandSource ctx, String player){
         if (getBannedPlayers().contains(player)) {
-            unbanPlayer(Objects.requireNonNull(ctx.getServer().getPlayerManager().getPlayer(player)), player);
+            unbanPlayer(Objects.requireNonNull(ctx.getPlayer()), player);
             ctx.sendMessage(Text.translatable("item.reapermod.revive.success").formatted(Formatting.GREEN));
         } else {
             ctx.sendMessage(Text.translatable("item.reapermod.revive.notbanned").formatted(Formatting.RED));

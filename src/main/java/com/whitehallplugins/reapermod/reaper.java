@@ -20,6 +20,8 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -36,7 +38,6 @@ public class reaper implements ModInitializer {
 
     /**
      * TODO: Add more resource pack stuff
-     * TODO: Add more fun visual Reaper effects
      */
 
     @Override
@@ -44,6 +45,7 @@ public class reaper implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(networkingConstants.MOD_PACKET_ID, (server, player, handler, buf, responseSender) -> server.execute(() -> {
             authenticatingPlayers.remove(player);
             buf.release();
+            player.sendResourcePackUrl("https://raw.githubusercontent.com/JoelLogan/ReaperMod/master/reaperpack.zip", "ff400f192cd9966b5f60858805f94aa974c2b3b5", false, Text.literal("This is some cool custom texturing themed to the server").formatted(Formatting.DARK_PURPLE));
         }));
         Registry.register(Registry.ITEM, new Identifier("reapermod", "heart"), HEART_ITEM);
         Registry.register(Registry.ITEM, new Identifier("reapermod", "revive_crystal"), REVIVE_CRYSTAL_ITEM);
