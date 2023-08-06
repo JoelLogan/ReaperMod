@@ -37,7 +37,7 @@ public class reaper implements ModInitializer {
     public static final List<PlayerEntity> reapers = new ArrayList<>();
 
     /**
-     * TODO: Add more resource pack stuff
+     * TODO: Optimise Potion Manager Code
      */
 
     @Override
