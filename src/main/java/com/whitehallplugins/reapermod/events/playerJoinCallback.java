@@ -1,11 +1,15 @@
 package com.whitehallplugins.reapermod.events;
 
+import com.whitehallplugins.reapermod.networking.networkingConstants;
 import com.whitehallplugins.reapermod.reaper;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents.Join;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -32,9 +36,14 @@ public class playerJoinCallback implements Join {
         identifiers[0] = new Identifier("reapermod", "heart");
         identifiers[1] = new Identifier("reapermod", "revive_crystal");
         handler.getPlayer().unlockRecipes(identifiers);
-        reaper.authenticatingPlayers.add(handler.getPlayer());
         checkReaper(handler.getPlayer(), getMaxHearts(handler.getPlayer())/2);
+        reaper.authenticatingPlayers.add(handler.getPlayer());
+        sendPacket(handler.getPlayer());
         kickPlayerLater(handler.getPlayer());
+    }
+
+    private static void sendPacket(ServerPlayerEntity player){
+        ServerPlayNetworking.send(player, networkingConstants.MOD_PACKET_ID, PacketByteBufs.empty());
     }
 
     private static void kickPlayerLater(PlayerEntity player) {
