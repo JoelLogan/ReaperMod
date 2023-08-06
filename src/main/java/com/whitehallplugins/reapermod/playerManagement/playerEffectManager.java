@@ -7,60 +7,61 @@ import net.minecraft.entity.player.PlayerEntity;
 public class playerEffectManager {
 
     public static void applyEffects(PlayerEntity player, int maxHealth){
-        if (maxHealth == 9) {
-            effectNine(player, true);
-        } else if (maxHealth == 8) {
-            effectNine(player, true);
-            effectEight(player, true);
-        } else if (maxHealth == 7) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-        } else if (maxHealth == 6) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-        } else if (maxHealth == 5) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-            effectFive(player, true);
-        } else if (maxHealth == 4) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-            effectFive(player, true);
-            effectFour(player, true);
-        } else if (maxHealth == 3) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-            effectFive(player, true);
-            effectFour(player, true);
-            effectThree(player, true);
-        } else if (maxHealth == 2) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-            effectFive(player, true);
-            effectFour(player, true);
-            effectThree(player, true);
-            effectTwo(player, true);
-        } else if (maxHealth == 1) {
-            effectNine(player, true);
-            effectEight(player, true);
-            effectSeven(player, true);
-            effectSix(player, true);
-            effectFive(player, true);
-            effectFour(player, true);
-            effectThree(player, true);
-            effectTwo(player, true);
-            effectOne(player, true);
+        switch (maxHealth) {
+            case 9:
+                effectNine(player, true);
+            case 8:
+                effectNine(player, true);
+                effectEight(player, true);
+            case 7:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+            case 6:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+            case 5:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+                effectFive(player, true);
+            case 4:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+                effectFive(player, true);
+                effectFour(player, true);
+            case 3:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+                effectFive(player, true);
+                effectFour(player, true);
+                effectThree(player, true);
+            case 2:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+                effectFive(player, true);
+                effectFour(player, true);
+                effectThree(player, true);
+                effectTwo(player, true);
+            case 1:
+                effectNine(player, true);
+                effectEight(player, true);
+                effectSeven(player, true);
+                effectSix(player, true);
+                effectFive(player, true);
+                effectFour(player, true);
+                effectThree(player, true);
+                effectTwo(player, true);
+                effectOne(player, true);
         }
     }
 
@@ -76,54 +77,55 @@ public class playerEffectManager {
             effectTwo(player, false);
             effectOne(player, false);
         }
-        else if (maxHealth == 9) {
-            effectEight(player, false);
-            effectSeven(player, false);
-            effectSix(player, false);
-            effectFive(player, false);
-            effectFour(player, false);
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-        } else if (maxHealth == 8) {
-            effectSeven(player, false);
-            effectSix(player, false);
-            effectFive(player, false);
-            effectFour(player, false);
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-        } else if (maxHealth == 7) {
-            effectSix(player, false);
-            effectFive(player, false);
-            effectFour(player, false);
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-        } else if (maxHealth == 6) {
-            effectFive(player, false);
-            effectFour(player, false);
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-        } else if (maxHealth == 5) {
-            effectFour(player, false);
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-            effectFive(player, true);
-        } else if (maxHealth == 4) {
-            effectThree(player, false);
-            effectTwo(player, false);
-            effectOne(player, false);
-            effectFour(player, true);
-            effectFive(player, true);
-        } else if (maxHealth == 3) {
-            effectTwo(player, false);
-            effectOne(player, false);
-            effectFour(player, true);
-        } else if (maxHealth == 2) {
-            effectOne(player, false);
+        switch (maxHealth) {
+            case 9:
+                effectEight(player, false);
+                effectSeven(player, false);
+                effectSix(player, false);
+                effectFive(player, false);
+                effectFour(player, false);
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+            case 8:
+                effectSeven(player, false);
+                effectSix(player, false);
+                effectFive(player, false);
+                effectFour(player, false);
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+            case 7:
+                effectSix(player, false);
+                effectFive(player, false);
+                effectFour(player, false);
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+            case 6:
+                effectFive(player, false);
+                effectFour(player, false);
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+            case 5:
+                effectFour(player, false);
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+                effectFive(player, true);
+            case 4:
+                effectThree(player, false);
+                effectTwo(player, false);
+                effectOne(player, false);
+                effectFour(player, true);
+                effectFive(player, true);
+            case 3:
+                effectTwo(player, false);
+                effectOne(player, false);
+                effectFour(player, true);
+            case 2:
+                effectOne(player, false);
         }
     }
 
@@ -221,39 +223,29 @@ public class playerEffectManager {
     private static void effectTwo(PlayerEntity player, boolean add){
         StatusEffectInstance statusEffectInstance21 = new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, Integer.MAX_VALUE, 0, false, false, true);
         StatusEffectInstance statusEffectInstance22 = new StatusEffectInstance(StatusEffects.HASTE, Integer.MAX_VALUE, 1, false, false, true);
-        if (add) {
-            player.addStatusEffect(statusEffectInstance21);
-            player.addStatusEffect(statusEffectInstance22);
-        }
-        else {
-            if (player.getActiveStatusEffects().containsKey(statusEffectInstance21.getEffectType())) {
-                if (player.getActiveStatusEffects().get(statusEffectInstance21.getEffectType()).getDuration() > 18000) {
-                    player.removeStatusEffect(statusEffectInstance21.getEffectType());
-                }
-            }
-            if (player.getActiveStatusEffects().containsKey(statusEffectInstance22.getEffectType())) {
-                if (player.getActiveStatusEffects().get(statusEffectInstance22.getEffectType()).getDuration() > 18000) {
-                    player.removeStatusEffect(statusEffectInstance22.getEffectType());
-                }
-            }
-        }
+        addDoubleEffects(player, add, statusEffectInstance21, statusEffectInstance22);
     }
+
     private static void effectOne(PlayerEntity player, boolean add){
         StatusEffectInstance statusEffectInstance11 = new StatusEffectInstance(StatusEffects.STRENGTH, Integer.MAX_VALUE, 2, false, false, true);
         StatusEffectInstance statusEffectInstance12 = new StatusEffectInstance(StatusEffects.SATURATION, Integer.MAX_VALUE, 0, false, false, true);
+        addDoubleEffects(player, add, statusEffectInstance11, statusEffectInstance12);
+    }
+
+    private static void addDoubleEffects(PlayerEntity player, boolean add, StatusEffectInstance statusEffectInstance1, StatusEffectInstance statusEffectInstance2) {
         if (add) {
-            player.addStatusEffect(statusEffectInstance11);
-            player.addStatusEffect(statusEffectInstance12);
+            player.addStatusEffect(statusEffectInstance1);
+            player.addStatusEffect(statusEffectInstance2);
         }
         else {
-            if (player.getActiveStatusEffects().containsKey(statusEffectInstance11.getEffectType())) {
-                if (player.getActiveStatusEffects().get(statusEffectInstance11.getEffectType()).getDuration() > 18000) {
-                    player.removeStatusEffect(statusEffectInstance11.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance1.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance1.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance1.getEffectType());
                 }
             }
-            if (player.getActiveStatusEffects().containsKey(statusEffectInstance12.getEffectType())) {
-                if (player.getActiveStatusEffects().get(statusEffectInstance12.getEffectType()).getDuration() > 18000) {
-                    player.removeStatusEffect(statusEffectInstance12.getEffectType());
+            if (player.getActiveStatusEffects().containsKey(statusEffectInstance2.getEffectType())) {
+                if (player.getActiveStatusEffects().get(statusEffectInstance2.getEffectType()).getDuration() > 18000) {
+                    player.removeStatusEffect(statusEffectInstance2.getEffectType());
                 }
             }
         }

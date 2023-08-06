@@ -36,10 +36,6 @@ public class reaper implements ModInitializer {
     public static final List<PlayerEntity> authenticatingPlayers = new ArrayList<>();
     public static final List<PlayerEntity> reapers = new ArrayList<>();
 
-    /**
-     * TODO: Optimise Potion Manager Code
-     */
-
     @Override
     public void onInitialize() {
         ServerPlayNetworking.registerGlobalReceiver(networkingConstants.MOD_PACKET_ID, (server, player, handler, buf, responseSender) -> server.execute(() -> {
