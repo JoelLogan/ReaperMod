@@ -45,7 +45,7 @@ public class reaper implements ModInitializer {
             authenticatingPlayers.remove(player);
             buf.release();
             handler.getPlayer().unlockRecipes(itemIdentifiers);
-            player.sendResourcePackUrl("https://raw.githubusercontent.com/JoelLogan/ReaperMod/master/reaperpack.zip", "ff400f192cd9966b5f60858805f94aa974c2b3b5", false, Text.literal("This is some cool custom texturing themed to the server").formatted(Formatting.DARK_PURPLE));
+            player.sendResourcePackUrl("https://raw.githubusercontent.com/JoelLogan/ReaperMod/master/reaperpack.zip", "c91abaa34eb248df8cbddfd4c9c2208bec6860b5", false, Text.literal("ReaperSMP themed texturing").formatted(Formatting.DARK_PURPLE));
         }));
         Registry.register(Registry.ITEM, itemIdentifiers[0], HEART_ITEM);
         Registry.register(Registry.ITEM, itemIdentifiers[1], REVIVE_CRYSTAL_ITEM);
