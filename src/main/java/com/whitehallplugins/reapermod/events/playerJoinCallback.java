@@ -32,10 +32,6 @@ public class playerJoinCallback implements Join {
         if (getMaxHearts(handler.getPlayer()) < 2) {
             setMaxHearts(handler.getPlayer(), 3);
         }
-        Identifier[] identifiers = new Identifier[2];
-        identifiers[0] = new Identifier("reapermod", "heart");
-        identifiers[1] = new Identifier("reapermod", "revive_crystal");
-        handler.getPlayer().unlockRecipes(identifiers);
         checkReaper(handler.getPlayer(), getMaxHearts(handler.getPlayer())/2);
         reaper.authenticatingPlayers.add(handler.getPlayer());
         sendPacket(handler.getPlayer());

@@ -35,16 +35,20 @@ public class reaper implements ModInitializer {
     public static final revive_crystal_item REVIVE_CRYSTAL_ITEM = new revive_crystal_item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.RARE).maxCount(1));
     public static final List<PlayerEntity> authenticatingPlayers = new ArrayList<>();
     public static final List<PlayerEntity> reapers = new ArrayList<>();
+    private final Identifier[] itemIdentifiers = new Identifier[2];
 
     @Override
     public void onInitialize() {
+        itemIdentifiers[0] = new Identifier("reapermod", "heart");
+        itemIdentifiers[1] = new Identifier("reapermod", "revive_crystal");
         ServerPlayNetworking.registerGlobalReceiver(networkingConstants.MOD_PACKET_ID, (server, player, handler, buf, responseSender) -> server.execute(() -> {
             authenticatingPlayers.remove(player);
             buf.release();
+            handler.getPlayer().unlockRecipes(itemIdentifiers);
             player.sendResourcePackUrl("https://raw.githubusercontent.com/JoelLogan/ReaperMod/master/reaperpack.zip", "ff400f192cd9966b5f60858805f94aa974c2b3b5", false, Text.literal("This is some cool custom texturing themed to the server").formatted(Formatting.DARK_PURPLE));
         }));
-        Registry.register(Registry.ITEM, new Identifier("reapermod", "heart"), HEART_ITEM);
-        Registry.register(Registry.ITEM, new Identifier("reapermod", "revive_crystal"), REVIVE_CRYSTAL_ITEM);
+        Registry.register(Registry.ITEM, itemIdentifiers[0], HEART_ITEM);
+        Registry.register(Registry.ITEM, itemIdentifiers[1], REVIVE_CRYSTAL_ITEM);
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> reviveCommand.register(dispatcher));
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> withdrawCommand.register(dispatcher));
