@@ -14,11 +14,11 @@
   "icon": "assets/reapermod/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "com.whitehallplugins.reapermod.client.reaperClient"
-    ],
     "main": [
       "com.whitehallplugins.reapermod.reaper"
+    ],
+    "client": [
+      "com.whitehallplugins.reapermod.client.reaperClient"
     ]
   },
   "depends": {

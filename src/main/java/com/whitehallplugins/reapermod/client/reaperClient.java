@@ -8,12 +8,16 @@ import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.network.PacketByteBuf;
 
 public class reaperClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        ClientPlayNetworking.registerGlobalReceiver(networkingConstants.MOD_PACKET_ID, (server, player, handler, buf) -> server.execute(() -> ClientPlayNetworking.send(networkingConstants.MOD_PACKET_ID, PacketByteBufs.empty())));
+        ClientPlayNetworking.registerGlobalReceiver(networkingConstants.MOD_PACKET_ID, (client, handler, buf, responseSender) -> {
+            PacketByteBuf modVersionPacket = PacketByteBufs.create().writeIntArray(networkingConstants.modVersion());
+            client.execute(() -> responseSender.sendPacket(networkingConstants.MOD_PACKET_ID, modVersionPacket));
+        });
         HudRenderCallback.EVENT.register((matrixStack,tickDelta) -> {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client.player != null && (client.player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH) / 2.0F) < 2) {

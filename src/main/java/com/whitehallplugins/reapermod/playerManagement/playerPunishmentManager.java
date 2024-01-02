@@ -14,12 +14,12 @@ import java.util.Objects;
 
 public class playerPunishmentManager {
 
-    public static void kickPlayer(PlayerEntity player){
-        Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getPlayerManager().getPlayer(player.getUuid())).networkHandler.disconnect(Text.literal("You ran out of lives"));
+    public static void kickPlayer(PlayerEntity player, String reason){
+        Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getPlayerManager().getPlayer(player.getUuid())).networkHandler.disconnect(Text.literal(reason));
     }
 
-    public static void banPlayer(PlayerEntity player){
-        Objects.requireNonNull(player.getServer()).getCommandManager().executeWithPrefix(player.getServer().getCommandSource(), "/ban " + player.getName().getString() + " You ran out of lives");
+    public static void banPlayer(PlayerEntity player, String reason){
+        Objects.requireNonNull(player.getServer()).getCommandManager().executeWithPrefix(player.getServer().getCommandSource(), "/ban " + player.getName().getString() + " " + reason);
     }
 
     public static void unbanPlayer(PlayerEntity player, String bannedPlayer){
@@ -33,14 +33,14 @@ public class playerPunishmentManager {
             for (Object o : jsonArray) {
                 JsonObject playerEntry = (JsonObject) o;
                 String reason = playerEntry.get("reason").getAsString();
-                if (reason.equals("You ran out of lives")){
+                if (reason.equals(Text.translatable("reapermod.banreason").getString())){
                     String name = playerEntry.get("name").getAsString();
                     players.add(name);
                 }
             }
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Get Banned Players Error: " + e.getMessage());
         }
         return players;
     }

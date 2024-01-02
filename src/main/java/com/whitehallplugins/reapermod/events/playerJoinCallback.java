@@ -1,6 +1,7 @@
 package com.whitehallplugins.reapermod.events;
 
 import com.whitehallplugins.reapermod.networking.networkingConstants;
+import com.whitehallplugins.reapermod.playerManagement.playerPunishmentManager;
 import com.whitehallplugins.reapermod.reaper;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
@@ -11,9 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
-import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -47,10 +46,10 @@ public class playerJoinCallback implements Join {
             try {
                 TimeUnit.SECONDS.sleep(15);
                 if (reaper.authenticatingPlayers.contains(player)) {
-                    Objects.requireNonNull(Objects.requireNonNull(player.getServer()).getPlayerManager().getPlayer(player.getUuid())).networkHandler.disconnect(Text.literal("ReaperMod not installed on client (verification timeout)"));
+                    playerPunishmentManager.kickPlayer(player, Text.translatable("reapermod.error.modversion2").getString());
                 }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println("Kick Player Later Error: " + e.getMessage());
             }
         }, executor);
     }

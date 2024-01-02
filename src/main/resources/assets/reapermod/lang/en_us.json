@@ -24,6 +24,10 @@
   "reapermod.sethealth.bignumber": "Max health is 20 hearts",
   "reapermod.sethealth.smallnumber": "Min health is 1 heart",
   "reapermod.sethealth.samehealth": "%d's health is already %d hearts",
+  "reapermod.banreason": "You ran out of lives",
   "reapermod.announce.1": " is now a ",
-  "reapermod.announce.2": "Reaper"
+  "reapermod.announce.2": "Reaper",
+  "reapermod.error.modversion": "Unable to retrieve the mod version for client verification",
+  "reapermod.error.modversion2": "ReaperMod not installed on client or not up-to-date (verification timeout)",
+  "reapermod.error.modversion3": "ReaperMod not installed on client or not up-to-date (verification failed)"
 }

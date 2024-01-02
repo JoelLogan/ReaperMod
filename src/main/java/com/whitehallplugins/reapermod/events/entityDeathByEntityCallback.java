@@ -6,11 +6,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import static com.whitehallplugins.reapermod.playerManagement.playerHeartManager.*;
-import static com.whitehallplugins.reapermod.playerManagement.playerPunishmentManager.kickPlayer;
 import static com.whitehallplugins.reapermod.playerManagement.playerPunishmentManager.banPlayer;
 import static com.whitehallplugins.reapermod.playerManagement.playerEffectManager.removeEffects;
 import static com.whitehallplugins.reapermod.playerManagement.playerTeamManager.checkReaper;
@@ -27,8 +27,7 @@ public class entityDeathByEntityCallback implements AfterKilledOtherEntity {
                         addHeart(player, (getMaxHearts(killedPlayer)/2)-1);
                     }
                     removeHeart(killedPlayer, getMaxHearts(killedPlayer));
-                    kickPlayer(killedPlayer);
-                    banPlayer(killedPlayer);
+                    banPlayer(killedPlayer, Text.translatable("reapermod.banreason").getString());
                 }
                 else {
                     removeHeart(killedPlayer, 1);
