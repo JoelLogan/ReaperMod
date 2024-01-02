@@ -10,24 +10,29 @@ public class playerEffectManager {
         switch (maxHealth) {
             case 9:
                 effectNine(player, true);
+                break;
             case 8:
                 effectNine(player, true);
                 effectEight(player, true);
+                break;
             case 7:
                 effectNine(player, true);
                 effectEight(player, true);
                 effectSeven(player, true);
+                break;
             case 6:
                 effectNine(player, true);
                 effectEight(player, true);
                 effectSeven(player, true);
                 effectSix(player, true);
+                break;
             case 5:
                 effectNine(player, true);
                 effectEight(player, true);
                 effectSeven(player, true);
                 effectSix(player, true);
                 effectFive(player, true);
+                break;
             case 4:
                 effectNine(player, true);
                 effectEight(player, true);
@@ -35,6 +40,7 @@ public class playerEffectManager {
                 effectSix(player, true);
                 effectFive(player, true);
                 effectFour(player, true);
+                break;
             case 3:
                 effectNine(player, true);
                 effectEight(player, true);
@@ -43,6 +49,7 @@ public class playerEffectManager {
                 effectFive(player, true);
                 effectFour(player, true);
                 effectThree(player, true);
+                break;
             case 2:
                 effectNine(player, true);
                 effectEight(player, true);
@@ -52,6 +59,7 @@ public class playerEffectManager {
                 effectFour(player, true);
                 effectThree(player, true);
                 effectTwo(player, true);
+                break;
             case 1:
                 effectNine(player, true);
                 effectEight(player, true);
@@ -62,6 +70,7 @@ public class playerEffectManager {
                 effectThree(player, true);
                 effectTwo(player, true);
                 effectOne(player, true);
+                break;
         }
     }
 
@@ -87,6 +96,7 @@ public class playerEffectManager {
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
+                break;
             case 8:
                 effectSeven(player, false);
                 effectSix(player, false);
@@ -95,6 +105,7 @@ public class playerEffectManager {
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
+                break;
             case 7:
                 effectSix(player, false);
                 effectFive(player, false);
@@ -102,30 +113,36 @@ public class playerEffectManager {
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
+                break;
             case 6:
                 effectFive(player, false);
                 effectFour(player, false);
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
+                break;
             case 5:
                 effectFour(player, false);
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
                 effectFive(player, true);
+                break;
             case 4:
                 effectThree(player, false);
                 effectTwo(player, false);
                 effectOne(player, false);
                 effectFour(player, true);
                 effectFive(player, true);
+                break;
             case 3:
                 effectTwo(player, false);
                 effectOne(player, false);
                 effectFour(player, true);
+                break;
             case 2:
                 effectOne(player, false);
+                break;
         }
     }
 
