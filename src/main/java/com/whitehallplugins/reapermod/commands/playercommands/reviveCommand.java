@@ -11,6 +11,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +25,7 @@ import static net.minecraft.server.command.CommandManager.literal;
 public final class reviveCommand {
 
     private static final List<PlayerEntity> cooldown = new ArrayList<>();
+    private static final ExecutorService executor = Executors.newCachedThreadPool();
 
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher) {
         dispatcher.register(literal("revive")
@@ -70,7 +72,7 @@ public final class reviveCommand {
                 TimeUnit.SECONDS.sleep(5);
                 cooldown.remove(player);
             } catch (InterruptedException ignored) {}
-        }, Executors.newSingleThreadExecutor());
+        }, executor);
     }
 
     private static int noPlayerError(ServerCommandSource ctx) {
