@@ -34,7 +34,7 @@ public final class withdrawCommand {
             final PlayerEntity self = ctx.getPlayer();
             assert self != null;
             int maxHealth = getMaxHearts(self);
-            if (maxHealth > (amount * 2) + 8) {
+            if (maxHealth > (amount * 2) + 8 && amount > 0) {
                 if (!self.getInventory().insertStack(new ItemStack(Registry.ITEM.get(new Identifier("reapermod", "heart")), amount))) {
                     throw new SimpleCommandExceptionType(Text.translatable("reapermod.inventory.isfull")).create();
                 }
